@@ -1,4 +1,5 @@
 const readInput = require("./helpers");
+const fs = require("fs").promises;
 
 async function calcFuelComsumption() {
   try {
@@ -13,6 +14,7 @@ async function calcFuelComsumption() {
       sum += consumption;
     });
     console.log(sum);
+    await fs.writeFile(`${__dirname}/output/d01p01.txt`, sum);
   } catch (err) {
     console.error(err);
   }
